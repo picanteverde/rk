@@ -5,10 +5,9 @@ const logistic = (r, k) => (t, x) => r * x * (1 - x / k)
 const l = logistic(0.7, 2)
 const h = 0.1
 const initial = [0, 0.1]
-const k= [h]
+const k = [h]
 
 describe('resolve one ode', () => {
-  
   test('should get correct k1', () => {
     k[1] = rk.t(l, initial, rk.factors[0], [h, 0])
     expect(k[1]).toBe(0.00665)
@@ -33,5 +32,4 @@ describe('resolve one ode', () => {
     const x1 = rk.next(initial[1], k[1], k[2], k[3], k[4])
     expect(x1).toBe(0.10686339357583563)
   })
-
 })
